@@ -1,5 +1,5 @@
 <template>
-  <div id="home" class="container max-width-1200px">
+  <div id="dashboard" class="container max-width-1200px">
     <div id="netWorth">
       <div id="netWorthTitle">Net Worth</div>
       <div id="netWorthValue">$123,456.78</div>
@@ -10,7 +10,7 @@
       <div class="row ps-1 pe-1">
         <div class="col-4 ps-2 pe-2 mb-3">
           <div class="card d-flex flex-row align-items-center">
-            <div class="card_icon">
+            <div class="card-icon">
               <svg
                 stroke="currentColor"
                 fill="currentColor"
@@ -33,7 +33,7 @@
 
         <div class="col-4 ps-2 pe-2 mb-3">
           <div class="card d-flex flex-row align-items-center">
-            <div class="card_icon">
+            <div class="card-icon">
               <svg
                 stroke="currentColor"
                 fill="currentColor"
@@ -56,7 +56,7 @@
 
         <div class="col-4 ps-2 pe-2 mb-3">
           <div class="card d-flex flex-row align-items-center">
-            <div class="card_icon">
+            <div class="card-icon">
               <svg
                 stroke="currentColor"
                 fill="currentColor"
@@ -79,7 +79,7 @@
 
         <div class="col-4 ps-2 pe-2 mb-3">
           <div class="card d-flex flex-row align-items-center">
-            <div class="card_icon">
+            <div class="card-icon">
               <svg
                 stroke="currentColor"
                 fill="currentColor"
@@ -174,9 +174,15 @@ export default defineComponent({
 .card {
   padding: 1rem;
   font-weight: 700;
+  transition: all 0.25s;
 }
 
-.card_icon {
+.card:hover {
+  cursor: pointer;
+  box-shadow: #dfe8f9 0px 0px 0px 3px;
+}
+
+.card-icon {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -187,7 +193,7 @@ export default defineComponent({
   border-radius: 50%;
 }
 
-.card_icon svg {
+.card-icon svg {
   fill: #00d897;
 }
 
@@ -201,6 +207,6 @@ export default defineComponent({
 
 #netWorthValue {
   font-size: 1.875rem;
-  font-weight: 700;
+  font-weight: 600;
 }
 </style>

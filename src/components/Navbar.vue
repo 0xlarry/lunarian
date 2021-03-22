@@ -11,22 +11,35 @@
       <div class="btn-group" role="group">
         <div
           id="selectedAccount"
-          class="rounded-start border border-dark d-flex align-items-center ps-3"
+          class="rounded-start border border-secondary d-flex align-items-center ps-3"
         >
           <div class="image-cropper me-3">
             <img src="icons/accountSelectorPlaceholder.png" />
           </div>
-          <span class="me-2">terra1234....abcd</span>
+          <span class="me-2">terra0123456789abcdef0123456789abcdef1234567</span>
         </div>
         <div class="btn-group">
           <button
-            class="btn btn-outline-dark dropdown-toggle"
+            class="btn btn-outline-secondary dropdown-toggle"
             data-bs-toggle="dropdown"
             data-bs-display="static"
           >
             Select
           </button>
-          <ul class="dropdown-menu dropdown-menu-end"></ul>
+          <ul class="dropdown-menu dropdown-menu-end">
+            <li class="dropdown-item d-flex align-items-center">
+              <div class="image-cropper me-3">
+                <img src="icons/accountSelectorPlaceholder.png" />
+              </div>
+              <div class="me-2">
+                terra0123456789abcdef0123456789abcdef1234567
+              </div>
+            </li>
+            <li><hr class="dropdown-divider" /></li>
+            <li class="dropdown-item d-flex align-items-center">
+              <div>Add / remove addresses</div>
+            </li>
+          </ul>
         </div>
       </div>
     </div>
@@ -35,14 +48,14 @@
       <div class="btn-group" role="group">
         <div
           id="selectedCurrency"
-          class="rounded-start border border-dark d-flex align-items-center ps-3"
+          class="rounded-start border border-secondary d-flex align-items-center ps-3"
         >
           <img class="flag me-3" src="icons/us.png" />
           <span class="me-2">USD</span>
         </div>
         <div class="btn-group">
           <button
-            class="btn btn-outline-dark dropdown-toggle"
+            class="btn btn-outline-secondary dropdown-toggle"
             data-bs-toggle="dropdown"
             data-bs-display="static"
           >
@@ -56,7 +69,7 @@
               onclick=""
             >
               <img class="flag me-3" :src="currency.icon" />
-              <span class="me-3">{{ currency.name }}</span>
+              <div>{{ currency.name }}</div>
             </li>
           </ul>
         </div>
@@ -122,8 +135,9 @@ export default defineComponent({
 }
 
 #logoText {
-  letter-spacing: 3px;
+  font-family: "Kanit", sans-serif;
   font-weight: 600;
+  letter-spacing: 2px;
   background: -webkit-linear-gradient(45deg, #3047a8, #6593e9);
   background-clip: text;
   -webkit-background-clip: text;
@@ -143,13 +157,14 @@ export default defineComponent({
   height: 36px;
 }
 
-.dropdown-toggle {
-  width: 100px;
+.flag {
+  width: 36px;
+  height: 36px;
 }
 
 #selectedAccount {
   height: 55px;
-  width: 215px;
+  width: 475px;
 }
 
 #selectedCurrency {
@@ -157,8 +172,23 @@ export default defineComponent({
   width: 125px;
 }
 
-.flag {
-  width: 36px;
-  height: 36px;
+.dropdown-toggle {
+  width: 100px;
+}
+
+.dropdown-item {
+  transition: all 0.25s;
+}
+
+.dropdown-item:hover {
+  cursor: pointer;
+}
+
+#accountSelector .dropdown-menu {
+  width: 574px;
+}
+
+#currencySelector .dropdown-menu {
+  width: 224px;
 }
 </style>

@@ -15,7 +15,6 @@
       "@/*": ["src/*"],
       "@assets/*": ["src/assets/*"],
       "@components/*": ["src/components/*"],
-      "@router:/*": ["src/router/*"],
       "@store/*": ["src/store/*"],
       "@types/*": ["src/types/*"],
       "@views/*": ["src/views/*"]
