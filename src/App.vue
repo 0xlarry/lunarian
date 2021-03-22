@@ -1,7 +1,7 @@
 <template>
   <div>
     <Navbar></Navbar>
-    <router-view />
+    <router-view class="mt-5 max-width-1200px" />
   </div>
 </template>
 
@@ -18,7 +18,24 @@ export default defineComponent({
 
 <style>
 #app {
-  font-family: "Lato", sans-serif;
+  font-family: "Roboto", sans-serif;
+  min-height: 100vh;
+  background: rgb(236, 236, 236);
+  background: linear-gradient(
+    180deg,
+    rgba(236, 236, 236, 1) 0%,
+    rgba(250, 250, 250, 1) 100px,
+    rgba(255, 255, 255, 1) 150px
+  );
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Exo 2", sans-serif;
 }
 
 .max-width-1200px {
