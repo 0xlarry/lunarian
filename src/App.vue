@@ -1,18 +1,19 @@
 <template>
   <div>
-    <Navbar></Navbar>
+    <Navbar />
     <router-view class="mt-5 max-width-1200px" />
+    <Footer />
   </div>
 </template>
 
 <script lang="ts">
 import { defineComponent } from "vue";
-
 import Navbar from "@/components/Navbar.vue";
+import Footer from "@/components/Footer.vue";
 
 export default defineComponent({
   name: "App",
-  components: { Navbar },
+  components: { Navbar, Footer },
 });
 </script>
 
