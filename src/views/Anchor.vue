@@ -1,8 +1,12 @@
 <template>
   <div id="anchor" class="container mt-1">
-    <BackButton :iconPath="'images/anchor.png'" :name="'Anchor Protocol'" />
+    <BackButton
+      :iconPath="'images/anchor.png'"
+      :name="'Anchor Protocol'"
+      class="mb-4"
+    />
 
-    <div class="row mt-3 ps-1 pe-2">
+    <div class="row ps-1 pe-2">
       <div class="col-4 ps-2 pe-2">
         <SummaryBox :title="'Total Supplied'" :content="'$12,345.67'" />
       </div>
@@ -29,7 +33,9 @@
           <tr>
             <td>
               <div class="d-flex align-items-center">
-                <img class="icon me-3" src="images/ust.png" />
+                <div class="image-cropper">
+                  <img class="me-3" src="images/ust.png" />
+                </div>
                 <span>UST</span>
               </div>
             </td>
@@ -56,7 +62,9 @@
           <tr>
             <td>
               <div class="d-flex align-items-center">
-                <img class="icon me-3" src="images/ust.png" />
+                <div class="image-cropper">
+                  <img class="me-3" src="images/ust.png" />
+                </div>
                 <span>UST</span>
               </div>
             </td>
@@ -83,7 +91,9 @@
           <tr>
             <td>
               <div class="d-flex align-items-center">
-                <img class="icon me-3" src="images/luna.png" />
+                <div class="image-cropper">
+                  <img class="me-3" src="images/luna.png" />
+                </div>
                 <span>bLUNA</span>
               </div>
             </td>
@@ -94,8 +104,107 @@
           <tr>
             <td>
               <div class="d-flex align-items-center">
-                <img class="icon me-3" src="images/atom.png" />
+                <div class="image-cropper">
+                  <img class="me-3" src="images/atom.png" />
+                </div>
                 <span>bATOM</span>
+              </div>
+            </td>
+            <td>1,000</td>
+            <td>$20.00</td>
+            <td>$20,000.00</td>
+          </tr>
+          <tr>
+            <td>
+              <div class="d-flex align-items-center">
+                <div class="image-cropper">
+                  <img class="me-3" src="images/solana.png" />
+                </div>
+                <span>bSOL</span>
+              </div>
+            </td>
+            <td>1,000</td>
+            <td>$20.00</td>
+            <td>$20,000.00</td>
+          </tr>
+          <tr>
+            <td>
+              <div class="d-flex align-items-center">
+                <div class="image-cropper">
+                  <img class="me-3" src="images/polkadot.png" />
+                </div>
+                <span>bDOT</span>
+              </div>
+            </td>
+            <td>1,000</td>
+            <td>$20.00</td>
+            <td>$20,000.00</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="subtitle">Staking</div>
+    <div class="table-container">
+      <table id="collateral" class="table">
+        <thead>
+          <tr>
+            <th scope="col">Asset</th>
+            <th scope="col">Amount</th>
+            <th scope="col">Price</th>
+            <th scope="col">Value</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              <div class="d-flex align-items-center">
+                <div class="image-cropper">
+                  <img class="me-3" src="images/anchor.png" />
+                </div>
+                <span>Staked ANC</span>
+              </div>
+            </td>
+            <td>1,000</td>
+            <td>$20.00</td>
+            <td>$20,000.00</td>
+          </tr>
+          <tr>
+            <td>
+              <div class="d-flex align-items-center">
+                <div class="image-cropper">
+                  <img class="me-3" src="images/terraswap.png" />
+                </div>
+                <span>Staked ANC-UST LP</span>
+              </div>
+            </td>
+            <td>200 ANC / 1,000 UST</td>
+            <td>-</td>
+            <td>$20,000.00</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="subtitle">Yield Farming</div>
+    <div class="table-container">
+      <table id="collateral" class="table">
+        <thead>
+          <tr>
+            <th scope="col">Asset</th>
+            <th scope="col">Amount</th>
+            <th scope="col">Price</th>
+            <th scope="col">Value</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              <div class="d-flex align-items-center">
+                <div class="image-cropper">
+                  <img class="me-3" src="images/anchor.png" />
+                </div>
+                <span>Claimable ANC</span>
               </div>
             </td>
             <td>1,000</td>
@@ -120,10 +229,25 @@ export default defineComponent({
 </script>
 
 <style scoped>
+.image-cropper {
+  width: 40px;
+  height: 40px;
+  position: relative;
+  overflow: hidden;
+  border-radius: 50%;
+  margin-right: 16px;
+}
+
+.image-cropper img {
+  width: 40px;
+  height: 40px;
+}
+
 .subtitle {
+  font-size: 1.25rem;
+  font-weight: 600;
   margin-top: 2.25rem;
   margin-bottom: 1rem;
-  font-size: 1.25rem;
 }
 
 .table {
@@ -165,10 +289,5 @@ export default defineComponent({
 .table tr th:last-child,
 .table tr td:last-child {
   padding-right: 16px;
-}
-
-.icon {
-  width: 32px;
-  height: 32px;
 }
 </style>

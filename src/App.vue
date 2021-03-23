@@ -1,7 +1,7 @@
 <template>
-  <div>
+  <div id="main">
     <Navbar />
-    <router-view class="max-width-1200px" />
+    <router-view id="routerView" class="max-width-1200px" />
     <Footer />
   </div>
 </template>
@@ -18,9 +18,17 @@ export default defineComponent({
 </script>
 
 <style>
+html {
+  overflow-y: scroll;
+}
+
 #app {
   font-family: "Roboto", sans-serif;
+  font-size: 1.15rem;
   font-weight: 400;
+}
+
+#main {
   min-height: 100vh;
   background: rgb(236, 236, 236);
   background: linear-gradient(
@@ -29,6 +37,12 @@ export default defineComponent({
     rgba(250, 250, 250, 1) 100px,
     rgba(255, 255, 255, 1) 150px
   );
+}
+
+#routerView {
+  overflow: auto;
+  min-height: calc(100vh - 80px);
+  padding-bottom: 150px;
 }
 
 .max-width-1200px {

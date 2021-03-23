@@ -44,13 +44,12 @@ export default defineComponent({
 
 <style scoped>
 #footer {
-  position: absolute;
-  left: 0;
-  bottom: 0;
+  position: relative;
   height: 75px;
   width: 100%;
   padding-left: 20px;
   padding-right: 20px;
+  margin-top: -75px !important;
 }
 
 a {

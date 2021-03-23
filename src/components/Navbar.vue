@@ -16,7 +16,7 @@
           <div class="image-cropper me-3">
             <img src="icons/accountSelectorPlaceholder.png" />
           </div>
-          <span class="me-2">terra0123456789abcdef0123456789abcdef1234567</span>
+          <span class="me-2">terra1234&hellip;abcd</span>
         </div>
         <div class="btn-group">
           <button
@@ -32,7 +32,15 @@
                 <img src="icons/accountSelectorPlaceholder.png" />
               </div>
               <div class="me-2">
-                terra0123456789abcdef0123456789abcdef1234567
+                terra1234&hellip;abcd
+              </div>
+            </li>
+            <li class="dropdown-item d-flex align-items-center">
+              <div class="image-cropper me-3">
+                <img src="icons/accountSelectorPlaceholder.png" />
+              </div>
+              <div class="me-2">
+                terra9999&hellip;ffff
               </div>
             </li>
             <li><hr class="dropdown-divider" /></li>
@@ -167,7 +175,7 @@ export default defineComponent({
 
 #selectedAccount {
   height: 55px;
-  width: 475px;
+  width: 250px;
 }
 
 #selectedCurrency {
@@ -179,6 +187,10 @@ export default defineComponent({
   width: 100px;
 }
 
+.dropdown-menu {
+  font-size: 1.15rem;
+}
+
 .dropdown-item {
   transition: all 0.25s;
 }
@@ -188,7 +200,7 @@ export default defineComponent({
 }
 
 #accountSelector .dropdown-menu {
-  width: 574px;
+  width: 349px;
 }
 
 #currencySelector .dropdown-menu {

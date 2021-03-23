@@ -1,5 +1,5 @@
 <template>
-  <div id="dashboard" class="container mt-5">
+  <div id="dashboard" class="container pt-5">
     <div id="netWorth">
       <div id="netWorthTitle">Net Worth</div>
       <div id="netWorthValue">$123,456.78</div>

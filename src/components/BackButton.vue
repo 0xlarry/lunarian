@@ -40,7 +40,6 @@ export default defineComponent({
   height: 40px;
   width: 40px;
   border-radius: 50%;
-  /* border: 1px solid #657795; */
   transition: all 0.25s;
 }
 

@@ -103,8 +103,8 @@ thead th {
 }
 
 tbody td {
-  padding-top: 12px !important;
-  padding-bottom: 12px !important;
+  padding-top: 8px !important;
+  padding-bottom: 8px !important;
 }
 
 th,
@@ -114,7 +114,7 @@ td {
 }
 
 .icon {
-  width: 32px;
-  height: 32px;
+  width: 40px;
+  height: 40px;
 }
 </style>
