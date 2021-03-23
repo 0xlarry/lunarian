@@ -1,26 +1,25 @@
 <template>
   <div>
     <Navbar />
-    <Dashboard class="mt-5 max-width-1200px" />
+    <router-view class="max-width-1200px" />
     <Footer />
   </div>
 </template>
 
 <script lang="ts">
 import { defineComponent } from "vue";
-import Dashboard from "@/components/Dashboard.vue";
 import Footer from "@/components/Footer.vue";
 import Navbar from "@/components/Navbar.vue";
 
 export default defineComponent({
   name: "App",
-  components: { Dashboard, Footer, Navbar },
+  components: { Footer, Navbar },
 });
 </script>
 
 <style>
 #app {
-  font-family: "Lato", sans-serif;
+  font-family: "Roboto", sans-serif;
   font-weight: 400;
   min-height: 100vh;
   background: rgb(236, 236, 236);
@@ -33,6 +32,6 @@ export default defineComponent({
 }
 
 .max-width-1200px {
-  max-width: 1200px;
+  max-width: 1200px !important;
 }
 </style>

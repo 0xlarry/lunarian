@@ -61,7 +61,7 @@ import { formatNumber, formatMoney } from "@/utils";
 import { AssetData } from "@/types";
 
 export default defineComponent({
-  name: "GenericModal",
+  name: "Modal",
   props: {
     id: String,
     name: String,

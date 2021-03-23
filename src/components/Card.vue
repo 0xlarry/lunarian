@@ -1,5 +1,5 @@
 <template>
-  <div class="col-4 ps-2 pe-2 mb-3">
+  <div class="col-md-6 col-lg-4 ps-2 pe-2 mb-3">
     <div class="card d-flex flex-row align-items-center">
       <div v-if="iconType == 'svg'" class="card-icon">
         <svg

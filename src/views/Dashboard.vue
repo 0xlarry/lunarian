@@ -1,5 +1,5 @@
 <template>
-  <div id="dashboard" class="container">
+  <div id="dashboard" class="container mt-5">
     <div id="netWorth">
       <div id="netWorthTitle">Net Worth</div>
       <div id="netWorthValue">$123,456.78</div>
@@ -31,11 +31,12 @@
           :value="card.value"
           :iconType="'png'"
           :iconData="card.pngPath"
+          @click="$router.push(card.id)"
         />
       </div>
     </div>
 
-    <GenericModal
+    <Modal
       v-for="(card, index) in accountOverviewCards"
       :key="index"
       :id="card.id"
@@ -49,11 +50,11 @@
 import { defineComponent } from "vue";
 import { AssetData } from "@/types";
 import Card from "@/components/Card.vue";
-import GenericModal from "@/components/GenericModal.vue";
+import Modal from "@/components/Modal.vue";
 
 export default defineComponent({
   name: "Dashboard",
-  components: { Card, GenericModal },
+  components: { Card, Modal },
   data() {
     return {
       accountOverviewCards: [
@@ -117,16 +118,19 @@ export default defineComponent({
       ],
       platformsCards: [
         {
+          id: "terraswap",
           name: "TerraSwap",
           value: 0,
           pngPath: "images/terraswap.png",
         },
         {
+          id: "mirror",
           name: "Mirror Protocol",
           value: 0,
           pngPath: "images/mirror.png",
         },
         {
+          id: "anchor",
           name: "Anchor Protocol",
           value: 0,
           pngPath: "images/anchor.png",

@@ -2,7 +2,7 @@
   <nav id="nav" class="navbar">
     <div id="logo" class="me-auto d-flex align-items-center">
       <img id="logoImg" class="me-3" src="images/terra.png" />
-      <h2 id="logoText" class="m-0 d-flex">
+      <h2 id="logoText" class="m-0">
         LUNARIAN
       </h2>
     </div>
@@ -135,13 +135,16 @@ export default defineComponent({
 }
 
 #logoText {
+  display: block;
   font-family: "Kanit", sans-serif;
   font-weight: 600;
   letter-spacing: 2px;
-  background: -webkit-linear-gradient(45deg, #3047a8, #6593e9);
+  background-image: -webkit-linear-gradient(45deg, #3047a8, #6593e9);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  -moz-background-clip: text;
+  -moz-text-fill-color: transparent;
 }
 
 .image-cropper {
