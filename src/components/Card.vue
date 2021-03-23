@@ -26,6 +26,7 @@
 
 <script lang="ts">
 import { defineComponent, PropType } from "vue";
+import { formatMoney } from "@/utils";
 
 export default defineComponent({
   name: "Card",
@@ -35,23 +36,7 @@ export default defineComponent({
     iconType: String as PropType<"svg" | "png">,
     iconData: String,
   },
-  methods: {
-    formatMoney(value: number, currencySymbol = "$"): string {
-      // If the number is zero, then simply return `$0`
-      if (value == 0) return currencySymbol + "0";
-
-      let formatted = Math.floor(value)
-        .toString()
-        .replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-
-      // If the value is no less than 1, then 2 decimal places
-      // Otherwise, 4 decimal places
-      let decPlaces = value >= 1 ? 2 : 4;
-
-      formatted += "." + value.toFixed(decPlaces).split(".")[1];
-      return currencySymbol + formatted;
-    },
-  },
+  methods: { formatMoney },
 });
 </script>
 
