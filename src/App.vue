@@ -18,8 +18,14 @@ export default defineComponent({
 </script>
 
 <style>
+/* https://stackoverflow.com/questions/1417934/ */
 html {
   overflow-y: scroll;
+}
+
+/* https://stackoverflow.com/questions/32862394/ */
+body {
+  padding-right: 0 !important;
 }
 
 #app {
