@@ -1,16 +1,20 @@
 <template>
   <div class="d-flex align-items-center">
-    <div id="iconContainer1" class="icon-container">
-      <img
-        :src="asset1.icon"
-        :class="'icon' + (isStableCoin(asset1.symbol) ? '-stablecoin' : '')"
-      />
+    <div
+      id="iconContainer1"
+      :class="
+        'icon-container' + (isStableCoin(asset1.symbol) ? '-stablecoin' : '')
+      "
+    >
+      <img :src="asset1.icon" />
     </div>
-    <div id="iconContainer2" class="icon-container">
-      <img
-        :src="asset2.icon"
-        :class="'icon' + (isStableCoin(asset2.symbol) ? '-stablecoin' : '')"
-      />
+    <div
+      id="iconContainer2"
+      :class="
+        'icon-container' + (isStableCoin(asset2.symbol) ? '-stablecoin' : '')
+      "
+    >
+      <img :src="asset2.icon" />
     </div>
     <span id="pairName" class="ms-3">{{ pairName }}</span>
   </div>
@@ -19,9 +23,11 @@
 <script lang="ts">
 import { defineComponent, PropType } from "vue";
 import { AssetData } from "@/types";
+import AssetIcon from "@/components/AssetIcon.vue";
 
 export default defineComponent({
   name: "PairIcon",
+  components: { AssetIcon },
   props: {
     pairName: String,
     asset1: Object as PropType<AssetData>,
@@ -47,17 +53,24 @@ export default defineComponent({
   width: 36px;
 }
 
-.icon {
+.icon-container img {
   height: 100%;
   width: 100%;
 }
 
-.icon-stablecoin {
+.icon-container-stablecoin {
+  height: 36px;
+  width: 36px;
+  border-radius: 50%;
+  border: 1px solid #ced4da;
+}
+
+.icon-container-stablecoin img {
   position: relative;
-  left: 0;
-  top: 0;
-  height: 38.5px;
-  width: 38.5px;
+  left: 6.5px;
+  top: 4.5px;
+  height: 20px;
+  width: 20px;
 }
 
 #iconContainer1 {
@@ -66,10 +79,10 @@ export default defineComponent({
 
 #iconContainer2 {
   z-index: 998;
-  transform: translateX(-12px);
+  transform: translateX(-6px);
 }
 
 #pairName {
-  transform: translateX(-12px);
+  transform: translateX(-6px);
 }
 </style>

@@ -104,6 +104,7 @@ th,
 td {
   padding-left: 0 !important;
   padding-right: 0 !important;
+  height: 53px !important;
 }
 
 .icon {

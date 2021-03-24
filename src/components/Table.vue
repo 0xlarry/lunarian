@@ -79,6 +79,7 @@ export default defineComponent({
 .table td {
   padding-top: 16px;
   padding-bottom: 16px;
+  height: 70px;
 }
 
 .table th {

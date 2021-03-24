@@ -1,10 +1,9 @@
 <template>
   <div class="d-flex align-items-center">
-    <div class="icon-container">
-      <img
-        :src="icon"
-        :class="'icon' + (isStableCoin(symbol) ? '-stablecoin' : '')"
-      />
+    <div
+      :class="'icon-container' + (isStableCoin(symbol) ? '-stablecoin' : '')"
+    >
+      <img :src="icon" />
     </div>
     <span class="ms-3">{{ symbol }}</span>
   </div>
@@ -39,16 +38,23 @@ export default defineComponent({
   width: 36px;
 }
 
-.icon {
+.icon-container img {
   height: 100%;
   width: 100%;
 }
 
-.icon-stablecoin {
+.icon-container-stablecoin {
+  height: 36px;
+  width: 36px;
+  border-radius: 50%;
+  border: 1px solid #ced4da;
+}
+
+.icon-container-stablecoin img {
   position: relative;
-  left: 0;
-  top: 0;
-  height: 38.5px;
-  width: 38.5px;
+  left: 6.5px;
+  top: 4.5px;
+  height: 20px;
+  width: 20px;
 }
 </style>
