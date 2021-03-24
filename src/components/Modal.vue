@@ -15,15 +15,15 @@
         <table class="table table-borderless mb-0">
           <thead>
             <tr>
-              <th scope="col" style="width: 31%">Asset</th>
-              <th scope="col" style="width: 23%">Amount</th>
-              <th scope="col" style="width: 23%">Price</th>
-              <th scope="col" style="width: 23%">Value</th>
+              <th scope="col" style="width: 30%">Asset</th>
+              <th scope="col" style="width: 30%">Amount</th>
+              <th scope="col" style="width: 20%">Price</th>
+              <th scope="col" style="width: 20%">Value</th>
             </tr>
           </thead>
           <tbody>
             <tr v-for="(row, index) in sortByValue(rows)" :key="index">
-              <td style="width: 31%">
+              <td style="width: 30%">
                 <AssetIcon
                   v-if="!isPair(row)"
                   :icon="row.icon"
@@ -36,17 +36,17 @@
                   :asset2="row.asset2"
                 />
               </td>
-              <td style="width: 23%">
+              <td style="width: 30%">
                 {{
                   isPair(row)
                     ? getPairAmountString(row)
                     : formatAmount(row.amount)
                 }}
               </td>
-              <td style="width: 23%">
+              <td style="width: 20%">
                 {{ isPair(row) ? "-" : formatMoney(row.price) }}
               </td>
-              <td style="width: 23%">
+              <td style="width: 20%">
                 {{ formatMoney(getValue(row)) }}
               </td>
             </tr>

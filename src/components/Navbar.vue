@@ -29,7 +29,7 @@
           <ul class="dropdown-menu dropdown-menu-end">
             <li class="dropdown-item d-flex align-items-center">
               <div class="image-cropper me-3">
-                <img src="icons/accountSelectorPlaceholder.png" />
+                <img src="images/accountSelectorPlaceholder.png" />
               </div>
               <div class="me-2">
                 terra1234&hellip;abcd
@@ -37,7 +37,7 @@
             </li>
             <li class="dropdown-item d-flex align-items-center">
               <div class="image-cropper me-3">
-                <img src="icons/accountSelectorPlaceholder.png" />
+                <img src="images/accountSelectorPlaceholder.png" />
               </div>
               <div class="me-2">
                 terra9999&hellip;ffff
@@ -96,32 +96,32 @@ export default defineComponent({
       currencies: [
         {
           id: "usd",
-          icon: "icons/us.png",
+          icon: "flags/us.png",
           name: "USD",
         },
         {
           id: "eur",
-          icon: "icons/eu.png",
+          icon: "flags/eu.png",
           name: "EUR",
         },
         {
           id: "gbp",
-          icon: "icons/uk.png",
+          icon: "flags/uk.png",
           name: "GBP",
         },
         {
           id: "cny",
-          icon: "icons/cn.png",
+          icon: "flags/cn.png",
           name: "CNY",
         },
         {
           id: "jpy",
-          icon: "icons/jp.png",
+          icon: "flags/jp.png",
           name: "JPY",
         },
         {
           id: "krw",
-          icon: "icons/kr.png",
+          icon: "flags/kr.png",
           name: "KRW",
         },
       ],
@@ -173,9 +173,13 @@ export default defineComponent({
   height: 36px;
 }
 
+.dropdown-toggle {
+  width: 90px;
+}
+
 #selectedAccount {
   height: 55px;
-  width: 250px;
+  width: 215px;
 }
 
 #selectedCurrency {
@@ -183,13 +187,13 @@ export default defineComponent({
   width: 125px;
 }
 
-.dropdown-toggle {
-  width: 100px;
+/* #accountSelector .dropdown-menu {
+  width: 304px;
 }
 
-.dropdown-menu {
-  font-size: 1.15rem;
-}
+#currencySelector .dropdown-menu {
+  width: 214px;
+} */
 
 .dropdown-item {
   transition: all 0.25s;
@@ -197,13 +201,5 @@ export default defineComponent({
 
 .dropdown-item:hover {
   cursor: pointer;
-}
-
-#accountSelector .dropdown-menu {
-  width: 349px;
-}
-
-#currencySelector .dropdown-menu {
-  width: 224px;
 }
 </style>

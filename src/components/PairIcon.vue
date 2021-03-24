@@ -1,10 +1,16 @@
 <template>
   <div class="d-flex align-items-center">
-    <div id="icon1" class="image-cropper">
-      <img :src="asset1.icon" />
+    <div id="iconContainer1" class="icon-container">
+      <img
+        :src="asset1.icon"
+        :class="'icon' + (isStableCoin(asset1.symbol) ? '-stablecoin' : '')"
+      />
     </div>
-    <div id="icon2" class="image-cropper">
-      <img :src="asset2.icon" />
+    <div id="iconContainer2" class="icon-container">
+      <img
+        :src="asset2.icon"
+        :class="'icon' + (isStableCoin(asset2.symbol) ? '-stablecoin' : '')"
+      />
     </div>
     <span id="pairName" class="ms-3">{{ pairName }}</span>
   </div>
@@ -21,33 +27,49 @@ export default defineComponent({
     asset1: Object as PropType<AssetData>,
     asset2: Object as PropType<AssetData>,
   },
+  methods: {
+    isStableCoin(symbol: string): boolean {
+      // prettier-ignore
+      return [
+        "AUT", "CAT", "CHT", "CNT", "EUT",
+        "GBT", "HKT", "IDT", "INT", "JPT",
+        "KRT", "MNT", "PHT", "SDT", "SGT",
+        "THT", "UST",
+      ].includes(symbol);
+    },
+  },
 });
 </script>
 
 <style scoped>
-.image-cropper {
-  width: 40px;
-  height: 40px;
+.icon-container {
+  height: 36px;
+  width: 36px;
+}
+
+.icon {
+  height: 100%;
+  width: 100%;
+}
+
+.icon-stablecoin {
   position: relative;
-  overflow: hidden;
-  border-radius: 50%;
+  left: 0;
+  top: 0;
+  height: 38.5px;
+  width: 38.5px;
 }
 
-img {
-  width: 40px;
-  height: 40px;
-}
-
-#icon1 {
+#iconContainer1 {
   z-index: 999;
 }
 
-#icon2 {
+#iconContainer2 {
   z-index: 998;
-  transform: translateX(-10px);
+  transform: translateX(-12px);
 }
 
 #pairName {
-  transform: translateX(-10px);
+  transform: translateX(-12px);
 }
 </style>

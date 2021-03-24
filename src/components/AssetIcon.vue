@@ -1,7 +1,10 @@
 <template>
   <div class="d-flex align-items-center">
-    <div class="image-cropper">
-      <img :src="icon" />
+    <div class="icon-container">
+      <img
+        :src="icon"
+        :class="'icon' + (isStableCoin(symbol) ? '-stablecoin' : '')"
+      />
     </div>
     <span class="ms-3">{{ symbol }}</span>
   </div>
@@ -16,20 +19,36 @@ export default defineComponent({
     icon: String,
     symbol: String,
   },
+  methods: {
+    isStableCoin(symbol: string): boolean {
+      // prettier-ignore
+      return [
+        "AUT", "CAT", "CHT", "CNT", "EUT",
+        "GBT", "HKT", "IDT", "INT", "JPT",
+        "KRT", "MNT", "PHT", "SDT", "SGT",
+        "THT", "UST",
+      ].includes(symbol);
+    },
+  },
 });
 </script>
 
 <style scoped>
-.image-cropper {
-  width: 40px;
-  height: 40px;
-  position: relative;
-  overflow: hidden;
-  border-radius: 50%;
+.icon-container {
+  height: 36px;
+  width: 36px;
 }
 
-.image-cropper img {
-  width: 40px;
-  height: 40px;
+.icon {
+  height: 100%;
+  width: 100%;
+}
+
+.icon-stablecoin {
+  position: relative;
+  left: 0;
+  top: 0;
+  height: 38.5px;
+  width: 38.5px;
 }
 </style>
