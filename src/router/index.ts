@@ -12,12 +12,12 @@ const routes: Array<RouteRecordRaw> = [
   },
   {
     path: "/anchor",
-    name: "Anchor",
+    name: "Anchor Protocol",
     component: Anchor,
   },
   {
     path: "/mirror",
-    name: "Mirror",
+    name: "Mirror Protocol",
     component: Mirror,
   },
   {

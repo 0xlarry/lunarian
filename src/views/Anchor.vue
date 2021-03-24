@@ -1,11 +1,5 @@
 <template>
-  <div id="anchor" class="container mt-1">
-    <BackButton
-      :iconPath="'images/anchor.png'"
-      :name="'Anchor Protocol'"
-      class="mb-4"
-    />
-
+  <div id="anchor" class="container mt-5">
     <div class="row ps-1 pe-2">
       <div class="col-4 ps-2 pe-2">
         <SummaryBox :title="'Total Supplied'" :content="'$12,345.67'" />
@@ -14,7 +8,7 @@
         <SummaryBox :title="'Total Borrowed'" :content="'$2,345.67'" />
       </div>
       <div class="col-4 ps-2 pe-2">
-        <SummaryBox :title="'Loan-To-Value Ratio (LTV)'" :content="'19.0%'" />
+        <SummaryBox :title="'Loan-To-Value (LTV)'" :content="'19.0%'" />
       </div>
     </div>
 
@@ -38,17 +32,16 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 import Table from "@/components/Table.vue";
-import BackButton from "@/components/BackButton.vue";
 import SummaryBox from "@/components/SummaryBox.vue";
 
 export default defineComponent({
   name: "Anchor",
-  components: { Table, BackButton, SummaryBox },
+  components: { Table, SummaryBox },
   data() {
     return {
       deposited: [
         {
-          icon: "images/ust.png",
+          icon: "coins/ust.png",
           symbol: "UST",
           amount: 1000,
           price: 1,
@@ -56,7 +49,7 @@ export default defineComponent({
       ],
       borrowed: [
         {
-          icon: "images/ust.png",
+          icon: "coins/ust.png",
           symbol: "UST",
           amount: 1000,
           price: 1,
@@ -64,25 +57,25 @@ export default defineComponent({
       ],
       collateral: [
         {
-          icon: "images/luna.png",
+          icon: "coins/luna.png",
           symbol: "bLUNA",
           amount: 1000,
           price: 20,
         },
         {
-          icon: "images/atom.png",
+          icon: "coins/atom.png",
           symbol: "bATOM",
           amount: 500,
           price: 2,
         },
         {
-          icon: "images/solana.png",
+          icon: "coins/solana.png",
           symbol: "bSOL",
           amount: 12345,
           price: 0.5,
         },
         {
-          icon: "images/polkadot.png",
+          icon: "coins/polkadot.png",
           symbol: "bDOT",
           amount: 88888,
           price: 0.1234,
@@ -90,7 +83,7 @@ export default defineComponent({
       ],
       staking: [
         {
-          icon: "images/anchor.png",
+          icon: "coins/anchor.png",
           symbol: "Staked ANC",
           amount: 1000,
           price: 5,
@@ -98,13 +91,13 @@ export default defineComponent({
         {
           pairName: "Staked ANC-UST LP",
           asset1: {
-            icon: "images/anchor.png",
+            icon: "coins/anchor.png",
             symbol: "ANC",
             amount: 100,
             price: 5,
           },
           asset2: {
-            icon: "images/ust.png",
+            icon: "coins/ust.png",
             symbol: "UST",
             amount: 500,
             price: 1,
@@ -113,7 +106,7 @@ export default defineComponent({
       ],
       yieldFarming: [
         {
-          icon: "images/anchor.png",
+          icon: "coins/anchor.png",
           symbol: "Claimable ANC",
           amount: 123,
           price: 5,

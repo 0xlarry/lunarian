@@ -1,20 +1,31 @@
 <template>
   <nav id="nav" class="navbar">
-    <div id="logo" class="me-auto d-flex align-items-center">
+    <div
+      v-if="$route.name == 'Dashboard'"
+      id="logo"
+      class="me-auto d-flex align-items-center"
+    >
       <img id="logoImg" class="me-3" src="images/terra.png" />
       <h2 id="logoText" class="m-0">
         LUNARIAN
       </h2>
     </div>
 
-    <div id="accountSelector" class="ms-2 me-1">
+    <BackButton
+      v-if="$route.name != 'Dashboard'"
+      :iconPath="`coins${$route.path}.png`"
+      :name="$route.name"
+      class="me-auto"
+    />
+
+    <div id="accountSelector" class="ms-auto me-1">
       <div class="btn-group" role="group">
         <div
           id="selectedAccount"
           class="rounded-start border border-secondary d-flex align-items-center ps-3"
         >
           <div class="image-cropper me-3">
-            <img src="icons/accountSelectorPlaceholder.png" />
+            <img src="images/accountSelectorPlaceholder.png" />
           </div>
           <span class="me-2">terra1234&hellip;abcd</span>
         </div>
@@ -58,7 +69,7 @@
           id="selectedCurrency"
           class="rounded-start border border-secondary d-flex align-items-center ps-3"
         >
-          <img class="flag me-3" src="icons/us.png" />
+          <img class="flag me-3" src="flags/us.png" />
           <span class="me-2">USD</span>
         </div>
         <div class="btn-group">
@@ -88,9 +99,11 @@
 
 <script lang="ts">
 import { defineComponent } from "vue";
+import BackButton from "@/components/BackButton.vue";
 
 export default defineComponent({
   name: "Navbar",
+  components: { BackButton },
   data() {
     return {
       currencies: [
@@ -186,14 +199,6 @@ export default defineComponent({
   height: 55px;
   width: 125px;
 }
-
-/* #accountSelector .dropdown-menu {
-  width: 304px;
-}
-
-#currencySelector .dropdown-menu {
-  width: 214px;
-} */
 
 .dropdown-item {
   transition: all 0.25s;
