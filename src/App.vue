@@ -30,7 +30,7 @@ body {
 
 #app {
   font-family: "Roboto", sans-serif;
-  font-size: 1.15rem;
+  /* font-size: 1.15rem; */
   font-weight: 400;
 }
 

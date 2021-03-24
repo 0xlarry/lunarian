@@ -19,275 +19,116 @@
     </div>
 
     <div class="subtitle">Deposited</div>
-    <div class="table-container">
-      <table id="deposited" class="table">
-        <thead>
-          <tr>
-            <th scope="col">Asset</th>
-            <th scope="col">Amount</th>
-            <th scope="col">Price</th>
-            <th scope="col">Value</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>
-              <div class="d-flex align-items-center">
-                <div class="image-cropper">
-                  <img class="me-3" src="images/ust.png" />
-                </div>
-                <span>UST</span>
-              </div>
-            </td>
-            <td>1,000</td>
-            <td>$1.00</td>
-            <td>$1,000.00</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
+    <Table :rows="deposited" />
 
     <div class="subtitle">Borrowed</div>
-    <div class="table-container">
-      <table id="borrowed" class="table">
-        <thead>
-          <tr>
-            <th scope="col">Asset</th>
-            <th scope="col">Amount</th>
-            <th scope="col">Price</th>
-            <th scope="col">Value</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>
-              <div class="d-flex align-items-center">
-                <div class="image-cropper">
-                  <img class="me-3" src="images/ust.png" />
-                </div>
-                <span>UST</span>
-              </div>
-            </td>
-            <td>1,000</td>
-            <td>$1.00</td>
-            <td>$1,000.00</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
+    <Table :rows="borrowed" />
 
     <div class="subtitle">Collateral</div>
-    <div class="table-container">
-      <table id="collateral" class="table">
-        <thead>
-          <tr>
-            <th scope="col">Asset</th>
-            <th scope="col">Amount</th>
-            <th scope="col">Price</th>
-            <th scope="col">Value</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>
-              <div class="d-flex align-items-center">
-                <div class="image-cropper">
-                  <img class="me-3" src="images/luna.png" />
-                </div>
-                <span>bLUNA</span>
-              </div>
-            </td>
-            <td>1,000</td>
-            <td>$20.00</td>
-            <td>$20,000.00</td>
-          </tr>
-          <tr>
-            <td>
-              <div class="d-flex align-items-center">
-                <div class="image-cropper">
-                  <img class="me-3" src="images/atom.png" />
-                </div>
-                <span>bATOM</span>
-              </div>
-            </td>
-            <td>1,000</td>
-            <td>$20.00</td>
-            <td>$20,000.00</td>
-          </tr>
-          <tr>
-            <td>
-              <div class="d-flex align-items-center">
-                <div class="image-cropper">
-                  <img class="me-3" src="images/solana.png" />
-                </div>
-                <span>bSOL</span>
-              </div>
-            </td>
-            <td>1,000</td>
-            <td>$20.00</td>
-            <td>$20,000.00</td>
-          </tr>
-          <tr>
-            <td>
-              <div class="d-flex align-items-center">
-                <div class="image-cropper">
-                  <img class="me-3" src="images/polkadot.png" />
-                </div>
-                <span>bDOT</span>
-              </div>
-            </td>
-            <td>1,000</td>
-            <td>$20.00</td>
-            <td>$20,000.00</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
+    <Table :rows="collateral" />
 
     <div class="subtitle">Staking</div>
-    <div class="table-container">
-      <table id="collateral" class="table">
-        <thead>
-          <tr>
-            <th scope="col">Asset</th>
-            <th scope="col">Amount</th>
-            <th scope="col">Price</th>
-            <th scope="col">Value</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>
-              <div class="d-flex align-items-center">
-                <div class="image-cropper">
-                  <img class="me-3" src="images/anchor.png" />
-                </div>
-                <span>Staked ANC</span>
-              </div>
-            </td>
-            <td>1,000</td>
-            <td>$20.00</td>
-            <td>$20,000.00</td>
-          </tr>
-          <tr>
-            <td>
-              <div class="d-flex align-items-center">
-                <div class="image-cropper">
-                  <img class="me-3" src="images/terraswap.png" />
-                </div>
-                <span>Staked ANC-UST LP</span>
-              </div>
-            </td>
-            <td>200 ANC / 1,000 UST</td>
-            <td>-</td>
-            <td>$20,000.00</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
+    <Table :rows="staking" />
 
     <div class="subtitle">Yield Farming</div>
-    <div class="table-container">
-      <table id="collateral" class="table">
-        <thead>
-          <tr>
-            <th scope="col">Asset</th>
-            <th scope="col">Amount</th>
-            <th scope="col">Price</th>
-            <th scope="col">Value</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>
-              <div class="d-flex align-items-center">
-                <div class="image-cropper">
-                  <img class="me-3" src="images/anchor.png" />
-                </div>
-                <span>Claimable ANC</span>
-              </div>
-            </td>
-            <td>1,000</td>
-            <td>$20.00</td>
-            <td>$20,000.00</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
+    <Table :rows="yieldFarming" />
   </div>
 </template>
 
 <script lang="ts">
 import { defineComponent } from "vue";
+import Table from "@/components/Table.vue";
 import BackButton from "@/components/BackButton.vue";
 import SummaryBox from "@/components/SummaryBox.vue";
 
 export default defineComponent({
   name: "Anchor",
-  components: { BackButton, SummaryBox },
+  components: { Table, BackButton, SummaryBox },
+  data() {
+    return {
+      deposited: [
+        {
+          icon: "images/ust.png",
+          symbol: "UST",
+          amount: 1000,
+          price: 1,
+        },
+      ],
+      borrowed: [
+        {
+          icon: "images/ust.png",
+          symbol: "UST",
+          amount: 1000,
+          price: 1,
+        },
+      ],
+      collateral: [
+        {
+          icon: "images/luna.png",
+          symbol: "bLUNA",
+          amount: 1000,
+          price: 20,
+        },
+        {
+          icon: "images/atom.png",
+          symbol: "bATOM",
+          amount: 500,
+          price: 2,
+        },
+        {
+          icon: "images/solana.png",
+          symbol: "bSOL",
+          amount: 12345,
+          price: 0.5,
+        },
+        {
+          icon: "images/polkadot.png",
+          symbol: "bDOT",
+          amount: 88888,
+          price: 0.1234,
+        },
+      ],
+      staking: [
+        {
+          icon: "images/anchor.png",
+          symbol: "Staked ANC",
+          amount: 1000,
+          price: 5,
+        },
+        {
+          pairName: "Staked ANC-UST LP",
+          asset1: {
+            icon: "images/anchor.png",
+            symbol: "ANC",
+            amount: 100,
+            price: 5,
+          },
+          asset2: {
+            icon: "images/ust.png",
+            symbol: "UST",
+            amount: 500,
+            price: 1,
+          },
+        },
+      ],
+      yieldFarming: [
+        {
+          icon: "images/anchor.png",
+          symbol: "Claimable ANC",
+          amount: 123,
+          price: 5,
+        },
+      ],
+    };
+  },
 });
 </script>
 
 <style scoped>
-.image-cropper {
-  width: 40px;
-  height: 40px;
-  position: relative;
-  overflow: hidden;
-  border-radius: 50%;
-  margin-right: 16px;
-}
-
-.image-cropper img {
-  width: 40px;
-  height: 40px;
-}
-
 .subtitle {
   font-size: 1.25rem;
   font-weight: 600;
   margin-top: 2.25rem;
   margin-bottom: 1rem;
-}
-
-.table {
-  table-layout: fixed;
-  word-wrap: break-word;
-  vertical-align: middle;
-  margin: 0;
-}
-
-.table th {
-  border-top: 1px solid #dfe8f9;
-}
-
-.table th,
-.table td {
-  padding-top: 16px;
-  padding-bottom: 16px;
-}
-
-.table-container {
-  border: 1px solid #dfe8f9;
-  border-radius: 4px;
-}
-
-.table th {
-  border: none;
-}
-
-.table td {
-  border-top: 1px solid #dfe8f9 !important;
-  border-bottom: none;
-}
-
-.table tr th:first-child,
-.table tr td:first-child {
-  padding-left: 16px;
-}
-
-.table tr th:last-child,
-.table tr td:last-child {
-  padding-right: 16px;
 }
 </style>

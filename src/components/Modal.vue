@@ -13,39 +13,41 @@
           ></button>
         </div>
         <table class="table table-borderless mb-0">
-          <thead class="mb-3">
+          <thead>
             <tr>
-              <th scope="col" style="width: 40%">Asset</th>
-              <th scope="col" style="width: 24%">Amount</th>
-              <th scope="col" style="width: 18%">Price</th>
-              <th scope="col" class="text-end" style="width: 18%">
-                Value
-              </th>
+              <th scope="col" style="width: 31%">Asset</th>
+              <th scope="col" style="width: 23%">Amount</th>
+              <th scope="col" style="width: 23%">Price</th>
+              <th scope="col" style="width: 23%">Value</th>
             </tr>
           </thead>
           <tbody>
-            <tr v-for="(asset, index) in assetsSorted" :key="index">
-              <td class="d-flex align-items-center" style="width: 40%">
-                <img class="icon me-3" :src="asset.icon" />
-                <span>{{ asset.symbol }}</span>
+            <tr v-for="(row, index) in sortByValue(rows)" :key="index">
+              <td style="width: 31%">
+                <AssetIcon
+                  v-if="!isPair(row)"
+                  :icon="row.icon"
+                  :symbol="row.symbol"
+                />
+                <PairIcon
+                  v-if="isPair(row)"
+                  :pairName="row.pairName"
+                  :asset1="row.asset1"
+                  :asset2="row.asset2"
+                />
               </td>
-              <td style="width: 24%">
+              <td style="width: 23%">
                 {{
-                  formatNumber(
-                    asset.amount,
-                    Number.isInteger(asset.amount)
-                      ? 0
-                      : asset.amount >= 1
-                      ? 2
-                      : 4
-                  )
+                  isPair(row)
+                    ? getPairAmountString(row)
+                    : formatAmount(row.amount)
                 }}
               </td>
-              <td style="width: 18%">
-                {{ formatMoney(asset.price) }}
+              <td style="width: 23%">
+                {{ isPair(row) ? "-" : formatMoney(row.price) }}
               </td>
-              <td class="text-end" style="width: 18%">
-                {{ formatMoney(asset.amount * asset.price) }}
+              <td style="width: 23%">
+                {{ formatMoney(getValue(row)) }}
               </td>
             </tr>
           </tbody>
@@ -57,29 +59,20 @@
 
 <script lang="ts">
 import { defineComponent, PropType } from "vue";
-import { formatNumber, formatMoney } from "@/utils";
-import { AssetData } from "@/types";
+import { AssetData, PairData } from "@/types";
+import AssetIcon from "@/components/AssetIcon.vue";
+import PairIcon from "@/components/PairIcon.vue";
+import * as utils from "@/utils";
 
 export default defineComponent({
   name: "Modal",
+  components: { AssetIcon, PairIcon },
   props: {
     id: String,
     name: String,
-    assets: Array as PropType<AssetData[]>,
+    rows: Array as PropType<Array<AssetData | PairData>>,
   },
-  computed: {
-    assetsSorted(): AssetData[] {
-      if (!this.assets) {
-        return [] as AssetData[];
-      }
-
-      return this.assets.sort((a: AssetData, b: AssetData) => {
-        if (a.amount * a.price < b.amount * b.price) return 1;
-        else return -1;
-      });
-    },
-  },
-  methods: { formatNumber, formatMoney },
+  methods: { ...utils },
 });
 </script>
 
