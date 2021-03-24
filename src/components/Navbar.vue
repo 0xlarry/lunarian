@@ -10,136 +10,26 @@
         LUNARIAN
       </h2>
     </div>
-
     <BackButton
       v-if="$route.name != 'Dashboard'"
       :iconPath="`coins${$route.path}.png`"
       :name="$route.name"
       class="me-auto"
     />
-
-    <div id="accountSelector" class="ms-auto me-1">
-      <div class="btn-group" role="group">
-        <div
-          id="selectedAccount"
-          class="rounded-start border border-secondary d-flex align-items-center ps-3"
-        >
-          <div class="image-cropper me-3">
-            <img src="images/accountSelectorPlaceholder.png" />
-          </div>
-          <span class="me-2">terra1234&hellip;abcd</span>
-        </div>
-        <div class="btn-group">
-          <button
-            class="btn btn-outline-secondary dropdown-toggle"
-            data-bs-toggle="dropdown"
-            data-bs-display="static"
-          >
-            Select
-          </button>
-          <ul class="dropdown-menu dropdown-menu-end">
-            <li class="dropdown-item d-flex align-items-center">
-              <div class="image-cropper me-3">
-                <img src="images/accountSelectorPlaceholder.png" />
-              </div>
-              <div class="me-2">
-                terra1234&hellip;abcd
-              </div>
-            </li>
-            <li class="dropdown-item d-flex align-items-center">
-              <div class="image-cropper me-3">
-                <img src="images/accountSelectorPlaceholder.png" />
-              </div>
-              <div class="me-2">
-                terra9999&hellip;ffff
-              </div>
-            </li>
-            <li><hr class="dropdown-divider" /></li>
-            <li class="dropdown-item d-flex align-items-center">
-              <div>Add / remove addresses</div>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div>
-
-    <div id="currencySelector" class="ms-2 me-1">
-      <div class="btn-group" role="group">
-        <div
-          id="selectedCurrency"
-          class="rounded-start border border-secondary d-flex align-items-center ps-3"
-        >
-          <img class="flag me-3" src="flags/us.png" />
-          <span class="me-2">USD</span>
-        </div>
-        <div class="btn-group">
-          <button
-            class="btn btn-outline-secondary dropdown-toggle"
-            data-bs-toggle="dropdown"
-            data-bs-display="static"
-          >
-            Select
-          </button>
-          <ul class="dropdown-menu dropdown-menu-end">
-            <li
-              v-for="(currency, index) in currencies"
-              :key="index"
-              class="dropdown-item d-flex align-items-center"
-              onclick=""
-            >
-              <img class="flag me-3" :src="currency.icon" />
-              <div>{{ currency.name }}</div>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div>
+    <AccountSelector class="ms-auto me-1" />
+    <CurrencySelector class="ms-2 me-1" />
   </nav>
 </template>
 
 <script lang="ts">
 import { defineComponent } from "vue";
+import AccountSelector from "@/components/AccountSelector.vue";
 import BackButton from "@/components/BackButton.vue";
+import CurrencySelector from "@/components/CurrencySelector.vue";
 
 export default defineComponent({
   name: "Navbar",
-  components: { BackButton },
-  data() {
-    return {
-      currencies: [
-        {
-          id: "usd",
-          icon: "flags/us.png",
-          name: "USD",
-        },
-        {
-          id: "eur",
-          icon: "flags/eu.png",
-          name: "EUR",
-        },
-        {
-          id: "gbp",
-          icon: "flags/uk.png",
-          name: "GBP",
-        },
-        {
-          id: "cny",
-          icon: "flags/cn.png",
-          name: "CNY",
-        },
-        {
-          id: "jpy",
-          icon: "flags/jp.png",
-          name: "JPY",
-        },
-        {
-          id: "krw",
-          icon: "flags/kr.png",
-          name: "KRW",
-        },
-      ],
-    };
-  },
+  components: { AccountSelector, BackButton, CurrencySelector },
 });
 </script>
 
@@ -166,45 +56,5 @@ export default defineComponent({
   -webkit-text-fill-color: transparent;
   -moz-background-clip: text;
   -moz-text-fill-color: transparent;
-}
-
-.image-cropper {
-  width: 36px;
-  height: 36px;
-  position: relative;
-  overflow: hidden;
-  border-radius: 50%;
-}
-
-.image-cropper img {
-  width: 36px;
-  height: 36px;
-}
-
-.flag {
-  width: 36px;
-  height: 36px;
-}
-
-.dropdown-toggle {
-  width: 90px;
-}
-
-#selectedAccount {
-  height: 55px;
-  width: 215px;
-}
-
-#selectedCurrency {
-  height: 55px;
-  width: 125px;
-}
-
-.dropdown-item {
-  transition: all 0.25s;
-}
-
-.dropdown-item:hover {
-  cursor: pointer;
 }
 </style>
